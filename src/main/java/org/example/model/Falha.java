@@ -19,17 +19,11 @@ public class Falha {
     CONSTRAINT chk_status_falha CHECK (status IN ('ABERTA', 'EM_ANDAMENTO', 'RESOLVIDA')),
 */
     private Long id;
-
     private Long equipamentoId;
-
     private LocalDateTime dataHoraOcorrencia;
-
     private String descricao;
-
     private String criticidade;
-
     private String status;
-
     private BigDecimal tempoParadaHoras;
 
     public Falha(Long id, Long equipamentoId, LocalDateTime dataHoraOcorrencia, String descricao, String criticidade, String status, BigDecimal tempoParadaHoras) {

@@ -2,13 +2,9 @@ package org.example.model;
 
 public class Equipamento {
     private Long id;
-
     private String nome;
-
     private String numeroDeSerie;
-
     private String areaSetor;
-
     private String statusOperacional;
 
     public Equipamento(Long id, String nome, String numeroDeSerie, String areaSetor, String statusOperacional) {
