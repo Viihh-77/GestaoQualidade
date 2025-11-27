@@ -10,7 +10,7 @@ public class FalhaDetalhadaDTO {
     private Equipamento equipamento;
     private List<String> acoesCorretivas;
 
-    public FalhaDetalhadaDTO(Falha falha, Equipamento equipamento, List<String> acoesCorretivas) {
+    public FalhaDetalhadaDTO(Falha falha, Equipamento equipamento) {
         this.falha = falha;
         this.equipamento = equipamento;
         this.acoesCorretivas = acoesCorretivas;

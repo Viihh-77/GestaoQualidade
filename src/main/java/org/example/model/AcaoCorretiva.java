@@ -20,15 +20,10 @@ import java.time.LocalDateTime;
 
 public class AcaoCorretiva {
     private Long id;
-
     private Long falhaId;
-
     private LocalDateTime dataHoraInicio;
-
     private LocalDateTime dataHoraFim;
-
     private String responsavel;
-
     private String descricaoArea;
 
     public AcaoCorretiva(Long id, Long falhaId, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim, String responsavel, String descricaoArea) {

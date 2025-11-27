@@ -1,5 +1,7 @@
 package org.example.model;
 
+import java.time.LocalDate;
+
 public class Equipamento {
     private Long id;
     private String nome;
@@ -27,6 +29,9 @@ public class Equipamento {
         this.numeroDeSerie = numeroDeSerie;
         this.areaSetor = areaSetor;
         this.statusOperacional = null;
+    }
+
+    public Equipamento(long falhaEquipamentoId, String equipamentoNome, String equipamentoLocalizacao, LocalDate equipamentoDataUltimaManutencao, LocalDate equipamentoDataProximaManutencao, String equipamentoStatus) {
     }
 
     public Long getId() {
