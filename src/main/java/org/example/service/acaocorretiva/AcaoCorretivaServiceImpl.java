@@ -31,7 +31,6 @@ public class AcaoCorretivaServiceImpl implements AcaoCorretivaService{
         if (falha.getCriticidade().equals("CRITICA")) {
             equipamentoRepositorio.atualizarStatus(falha.getEquipamentoId(), "OPERACIONAL");
         }
-
         return acao;
     }
 }

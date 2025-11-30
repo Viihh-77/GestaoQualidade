@@ -1,5 +1,6 @@
 package org.example.service.falha;
 
+import org.example.model.Equipamento;
 import org.example.model.Falha;
 import org.example.repositorio.EquipamentoRepositorio;
 import org.example.repositorio.FalhaRepositorio;
@@ -15,18 +16,20 @@ public class FalhaServiceImpl implements FalhaService{
     @Override
     public Falha registrarNovaFalha(Falha falha) throws SQLException {
 
-        if (!equipamentoRepositorio.EquipamentoExiste(falha.getEquipamentoId())) {
+        boolean equipamento = equipamentoRepositorio.EquipamentoExiste(falha.getEquipamentoId());
+
+        if (equipamento == false) {
             throw new IllegalArgumentException("Equipamento não encontrado!");
         }
 
         falha.setStatus("ABERTA");
-        falha = falhaRespositorio.registrarNovaFalha(falha);
+        falhaRespositorio.registrarNovaFalha(falha);
 
-        if (falha.getCriticidade() == "CRITICA") {
+        if (falha.getCriticidade().equals("CRITICA")) {
             equipamentoRepositorio.atualizarStatus(falha.getEquipamentoId(), "EM_MANUTENCAO");
         }
 
-        return falha;
+
     }
 
     @Override

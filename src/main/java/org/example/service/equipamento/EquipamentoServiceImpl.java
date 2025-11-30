@@ -13,12 +13,7 @@ public class EquipamentoServiceImpl implements EquipamentoService{
     public Equipamento criarEquipamento(Equipamento equipamento) throws SQLException {
 
         equipamento.setStatusOperacional("OPERACIONAL");
-        equipamento = repositorio.criarEquipamento(equipamento);
-
-        if (equipamento.getId() == null) {
-            System.out.println("Erro: ID não existe!");
-        }
-
+        repositorio.criarEquipamento(equipamento);
         return equipamento;
     }
 
@@ -30,7 +25,6 @@ public class EquipamentoServiceImpl implements EquipamentoService{
         if (equipamento == null) {
             throw new RuntimeException("Equipamento não encontrado!");
         }
-
         return equipamento;
     }
 }

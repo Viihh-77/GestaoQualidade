@@ -39,7 +39,6 @@ public class FalhaRepositorio {
 
             if (rs.next()) {
                 falha.setId(rs.getLong(1));
-                return falha;
             }
         }
         return falha;
@@ -109,22 +108,14 @@ public class FalhaRepositorio {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {
-                Long equipamentoId = rs.getLong("equipamentoId");
-                LocalDateTime dataHoraOcorrencia = rs.getTimestamp("dataHoraOcorrencia").toLocalDateTime();
-                String descricao = rs.getString("descricao");
-                String criticidade = rs.getString("criticidade");
-                String status = rs.getString("status");
-                BigDecimal tempoParadaHoras = rs.getBigDecimal("tempoParadaHoras");
-
-                return new Falha(
-                        id,
-                        equipamentoId,
-                        dataHoraOcorrencia,
-                        descricao,
-                        criticidade,
-                        status,
-                        tempoParadaHoras
+                if (rs.next()) {
+                    return new Falha(
+                    rs.getLong("equipamentoId"),
+                    rs.getTimestamp("dataHoraOcorrencia").toLocalDateTime(),
+                    rs.getString("descricao"),
+                    rs.getString("criticidade"),
+                    rs.getString("status"),
+                    rs.getBigDecimal("tempoParadaHoras")
                 );
             }
         }
@@ -166,7 +157,7 @@ public class FalhaRepositorio {
                     String nome = rs.getString("nome");
                     double tempoParadaHoras = rs.getDouble("tempoParadaHoras");
 
-                    relatorioParada.add( new RelatorioParadaDTO(
+                    relatorioParada.add(new RelatorioParadaDTO(
                             equipamentoId,
                             nome,
                             tempoParadaHoras

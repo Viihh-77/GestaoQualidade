@@ -95,7 +95,7 @@ public class EquipamentoRepositorio {
         String query = """
                 UPDATE Equipamento
                 SET statusOperacional = ?
-                WHERe id = ?
+                WHERE id = ?
                 """;
 
         try (Connection conn = Conexao.conectar();
@@ -126,7 +126,7 @@ public class EquipamentoRepositorio {
         try (Connection conn = Conexao.conectar();
         PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setDate(1, java.sql.Date.valueOf(dataInicio));
+            stmt.setDate(1, Date.valueOf(dataInicio));
             stmt.setDate(2, Date.valueOf(dataFim));
             ResultSet rs = stmt.executeQuery();
 
